@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Outback_DogHouse</title>
+    <title>OutBack_DogHouse</title>
     <link rel="stylesheet" type="text/css" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
-
 <body>
     <div class="backgroundImg">
         <div class="center">
-            <form action="/login" method="post">
-                <!--login 후 이동-->
-                <input type="text" name="user_id" id="id" placeholder="아이디" class="input"><br />
-                <input type="password" name="user_pwd" id="password" placeholder="비밀번호" class="input"><br />
+            <span class="title">OutBack DogHouse</span><br>
 
+            <form action="http://localhost:3000/login/home" method="post">
+                <!--login 후 이동-->
+                    <input type="text" name="_id" id="id"
+                    placeholder="아이디" class="input">
+                    <input type="password" name="password" id="password"
+                    placeholder="비밀번호" class="input">
+                
                 <!--home으로 이동-->
                 <input type="submit" value="LOGIN" class="submit">
             </form>
@@ -28,5 +30,4 @@
         </div>
     </div>
 </body>
-
 </html>

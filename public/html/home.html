@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OutBack_DogHouse</title>
+    <link rel=" shortcut icon" href="../image/DogHouse-2.ico">
+    <link rel="icon" href="../image/DogHouse-2.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+        <header>
+
+        </header>
+        
+        <main class="cards">
+
+            <!-- 컨트롤 카드 -->
+            <div class="flip-card">
+                <div class="flip-card-in">
+
+                    <div class="flip-card-front">
+                        <div class="small_font">도그하우스 컨트롤러</div>
+
+                        <img src="https://image.flaticon.com/icons/svg/141/141070.svg"
+                         alt="Today">
+                         <!-- 음악 on/off  / 눌렀을 때-->    
+                        <div class="btn" onclick="location.href='sendMusic'">
+                            음악 OFF<br>(지원예정)
+                        </div>
+                        <!-- 온도 on/off / 눌렀을 때 -->    
+                        <div class="btn" onclick="location.href='sendTemp'" id="_flag">
+                            난방
+                        </div>  
+                        
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 불쾌지수 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+
+                    <div class="flip-card-front">
+                        <div class="small_font">불쾌지수</div>
+
+                        <img src="https://image.flaticon.com/icons/svg/132/132233.svg" 
+                        alt="Wheater">
+                         <!-- 오늘의 날짜 -->    
+                        <div class="small_font">
+                            <!-- 날짜 -->
+                            <span class="nowday"></span> 
+                        </div> 
+                        <!-- 불쾌지수 -->
+                        <div class="big_font"> 
+                            좋음
+                        </div> 
+                    </div>
+
+                    <div class="flip-card-back">
+                        <h1>불쾌지수 <br> 보러가기</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오늘의 날씨 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+    
+                    <div class="flip-card-front">
+                        <div class="small_font">오늘의 날씨</div>
+                        
+                        <img src="https://image.flaticon.com/icons/svg/874/874992.svg"
+                         alt="Today">
+                        <!-- 사용자의 지역온도 -->
+                        <div class="big_font">
+                            <!-- 온도  -->
+                            <span class="temp"></span>
+                            <span>°C</span>
+                        </div> 
+                    </div>
+                        
+                    <a href="https://weather.naver.com/" target="_blank">
+                    <div class="flip-card-back">
+                    
+                        <h1>날씨 <br> 보러가기</h1>
+                    
+                    </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 마이 도그하우스 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+    
+                    <div class="flip-card-front">
+                        <div class="small_font">마이 도그하우스</div>
+                        
+                        <img src="https://image.flaticon.com/icons/svg/609/609803.svg" 
+                        alt="DogHouse">
+
+                        <div class="big_font2"> 
+
+                            <!-- 개 집 온도 -->
+                            <div id="_temp">
+                                25°C
+                            </div>
+
+                            <div id="ing">
+                                난방 중
+                            </div>
+
+                            <!-- 개 집 무게 -->
+                            <div id = "_weight"> 
+                                5kg
+                            </div> 
+
+                            <div id="state">
+                                정상
+                            </div>
+
+                            <div id="weightInfo">
+                                일주일 평균 몸무게 : 4.8
+                            </div>
+
+                        </div> 
+                    </div>
+                        
+                    <div class="flip-card-back" href = "https://weather.naver.com/">
+                        <h1>자세히 보러가기</h1>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <script>
+            // var temp;
+            // var weight;
+
+            // $(document).ready(function(){
+            //     reload();
+            // });
+
+            // function reload(){
+            //     $.getJSON('http://localhost:3000/pet/settings/8596', function(data){
+            //         weight = data[0].weight;
+            //         //$('#_weight').html(weight + 'Kg');
+
+            //         temp = data[0].temp;
+            //         //$('#_temp').html(temp + 'ºC');
+            //     });
+            // }
+
+            // setInterval(function() {
+            //     reload();
+            //     var weight1 = 0;
+            //     weight1 = Math.round(weight - 1);
+            //     if(weight1 < 0){
+            //         weight1 = 0;
+            //     }
+            //     if(weight1 >= 5)
+            //     {
+            //         $('#state').css({
+            //             "background-color": "#cbce30"
+            //         });
+            //         $('#_weight').css({
+            //             "color" : "#cbce30"
+            //         });
+            //         $('#state').html("경고");
+            //     }
+            //     else if(weight1 < 1){
+            //         $('#state').css({
+            //             "background-color": "#cbce30"
+            //         });
+            //         $('#state').html("유효하지 않습니다.");
+            //     }
+            //     else{
+            //         $('#state').css({
+            //             "background-color": "#50ce30"
+            //         });
+            //         $('#_weight').css({
+            //             "color" : "#50ce30"
+            //         });
+            //         $('#state').html("정상");
+            //     }
+            //     $('#_temp').html(temp + 'ºC');
+            //     $('#_weight').html(weight1 + 'Kg');
+            //     console.log(temp,weight);
+            // }, 3000);
+
+        
+        </script>
+
+        <script>
+            // $(document).ready(function(){
+            //     $.getJSON('http://localhost:3000/plag_pel/8809', function(data){
+            //         var flag_pel = data[0].flag_pel;
+            //         if(flag_pel == 1){
+            //             $('#_flag').html("난방 ON");
+            //             $('#ing').html("난방 중");
+            //         }
+            //         else if(flag_pel == 0){
+            //             $('#_flag').html("난방 OFF");
+            //             $('#ing').html("난방 꺼짐");
+            //         }
+                    
+            //     });
+            // });
+        </script>
+
+        <script src="../js/api.js"></script>
+</body>
+</html>

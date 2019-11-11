@@ -48,13 +48,11 @@ const findUserIndex = (user_id, user_pwd) => {
 //   res.end('<h1>Hello World</h1>');
 // });
 
-// app.get('/', (req, res) =>{
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type', 'text/html');
-//     res.end('<h1>Hello World</h1>');
-// })
+app.get('/', (req, res) =>{
+    res.sendFile(__dirname + '/public/html/loading.html');
+})
 
-app.get('/', (req, res) => {
+app.get('/l', (req, res) => {
     const sess = req.session; // 세션 객체에 접근
     res.render('view', {
         nickname: sess.user_uid+1 ? users[sess.user_uid]['user_nickname'] : ''
@@ -69,12 +67,19 @@ app.post('/login', (req, res) => {
     if( findUser( body.user_id, body.user_pwd ) ) {
     // 해당유저가 존재한다면
         req.session.user_uid = findUserIndex( body.user_id, body.user_pwd ); //유니크한 값 유저 색인 값 저장
-        res.redirect('/');
+        res.redirect('/home');
     } else {
-        res.send('유효하지 않습니다.');
+        res.send('<script type="text/javascript">alert("유효하지 않은 회원 정보입니다."); document.location.href="/login"</script>');
     }
 });
 
+app.get('/home', (req, res) => {
+    res.render('home');
+})
+
+// app.get('/home', (req, res) => {
+
+// })
 app.get('/logout', (req, res) => {
     delete req.session.user_uid;
     res.redirect('/');
